@@ -141,3 +141,56 @@ form button {
 form button:hover {
     background-color: #303f9f;
 }
+
+/* Existing styles */
+
+.feedback {
+    margin-top: 1rem;
+    color: red;
+}
+
+.faq {
+    margin-top: 2rem;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    background-color: #f4f4f4;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.faq-answer {
+    display: none;
+    padding: 1rem;
+    background-color: #e9e9e9;
+}
+
+.faq-question:hover {
+    background-color: #ddd;
+}
+
+.social-media {
+    margin-top: 1rem;
+}
+
+.social-media a {
+    margin: 0 0.5rem;
+}
+
+.social-media img {
+    width: 24px;
+    height: 24px;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+    color: #ffeb3b;
+}

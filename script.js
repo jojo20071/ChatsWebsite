@@ -169,3 +169,28 @@ function loadPreferences() {
         document.body.classList.add('dark-mode');
     }
 }
+function validateForm(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const feedback = document.getElementById('formFeedback');
+
+    if (name && email && message) {
+        feedback.textContent = 'Form submitted successfully!';
+        feedback.style.color = 'green';
+        document.getElementById('contactForm').reset();
+    } else {
+        feedback.textContent = 'Please fill out all fields.';
+        feedback.style.color = 'red';
+    }
+}
+
+function toggleFaq(button) {
+    const answer = button.nextElementSibling;
+    if (answer.style.display === 'block') {
+        answer.style.display = 'none';
+    } else {
+        answer.style.display = 'block';
+    }
+}
