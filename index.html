@@ -20,7 +20,34 @@
             <li onclick="showPage('settings')">Settings</li>
         </ul>
     </aside>
-
-
+    <main>
+        <section id="dashboard" class="page">
+            <h2>Dashboard</h2>
+            <div class="controls">
+                <button onclick="setChartType('bar')">Bar Chart</button>
+                <button onclick="setChartType('line')">Line Chart</button>
+                <button onclick="setChartType('pie')">Pie Chart</button>
+                <input type="text" id="filterInput" placeholder="Filter" oninput="applyFilter()">
+                <input type="number" id="zoomInput" placeholder="Zoom Level" oninput="applyZoom()">
+            </div>
+            <svg id="chart"></svg>
+        </section>
+        <section id="upload" class="page">
+            <h2>Data Upload</h2>
+            <input type="file" id="fileInput">
+            <button onclick="uploadData()">Upload Data</button>
+        </section>
+        <section id="realtime" class="page">
+            <h2>Real-Time Data</h2>
+            <svg id="realtimeChart"></svg>
+        </section>
+        <section id="settings" class="page">
+            <h2>Settings</h2>
+            <label>
+                <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
+                Dark Mode
+            </label>
+        </section>
+    </main>
 </body>
 </html>
