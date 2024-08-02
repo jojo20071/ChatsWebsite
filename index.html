@@ -1,61 +1,107 @@
-<svg id="realtimeChart"></svg>
-</section>
-<section id="settings" class="page">
-    <h2>Settings</h2>
-    <label>
-        <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
-        Dark Mode
-    </label>
-</section>
-<section id="about" class="page">
-    <h2>About</h2>
-    <p>Welcome to the Interactive Data Visualization Platform. This platform allows you to visualize data in various formats and interact with real-time data.</p>
-    <p>Our mission is to provide users with the best tools to analyze and visualize their data efficiently.</p>
-    <p>For more information, visit our <a href="#">documentation</a> or <a href="#">blog</a>.</p>
-</section>
-<section id="contact" class="page">
-    <h2>Contact</h2>
-    <form id="contactForm" onsubmit="validateForm(event)">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-        <button type="submit">Submit</button>
-        <div id="formFeedback" class="feedback"></div>
-    </form>
-</section>
-<section id="help" class="page">
-    <h2>Help</h2>
-    <p>If you need assistance, please refer to our <a href="#">documentation</a> or contact support.</p>
-    <div class="faq">
-        <h3>Frequently Asked Questions</h3>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">What is this platform?</button>
-            <div class="faq-answer">
-                <p>This platform is a tool for visualizing and analyzing data in various formats.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Data Visualization Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://d3js.org/d3.v7.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Interactive Data Visualization Platform</h1>
+    </header>
+    <aside id="sidebar">
+        <ul>
+            <li onclick="showPage('dashboard')">Dashboard</li>
+            <li onclick="showPage('upload')">Data Upload</li>
+            <li onclick="showPage('realtime')">Real-Time Data</li>
+            <li onclick="showPage('settings')">Settings</li>
+            <li onclick="showPage('about')">About</li>
+            <li onclick="showPage('contact')">Contact</li>
+            <li onclick="showPage('help')">Help</li>
+        </ul>
+    </aside>
+    <main>
+        <section id="dashboard" class="page">
+            <h2>Dashboard</h2>
+            <div class="controls">
+                <button onclick="setChartType('bar')">Bar Chart</button>
+                <button onclick="setChartType('line')">Line Chart</button>
+                <button onclick="setChartType('pie')">Pie Chart</button>
+                <input type="text" id="filterInput" placeholder="Filter" oninput="applyFilter()">
+                <input type="number" id="zoomInput" placeholder="Zoom Level" oninput="applyZoom()">
             </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">How do I upload data?</button>
-            <div class="faq-answer">
-                <p>You can upload data by navigating to the Data Upload section and selecting a file.</p>
+            <svg id="chart"></svg>
+        </section>
+        <section id="upload" class="page">
+            <h2>Data Upload</h2>
+            <input type="file" id="fileInput">
+            <button onclick="uploadData()">Upload Data</button>
+        </section>
+        <section id="realtime" class="page">
+            <h2>Real-Time Data</h2>
+            <svg id="realtimeChart"></svg>
+        </section>
+        <section id="settings" class="page">
+            <h2>Settings</h2>
+            <label>
+                <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
+                Dark Mode
+            </label>
+        </section>
+        <section id="about" class="page">
+            <h2>About</h2>
+            <p>Welcome to the Interactive Data Visualization Platform. This platform allows you to visualize data in various formats and interact with real-time data.</p>
+            <p>Our mission is to provide users with the best tools to analyze and visualize their data efficiently.</p>
+            <p>For more information, visit our <a href="#">documentation</a> or <a href="#">blog</a>.</p>
+        </section>
+        <section id="contact" class="page">
+            <h2>Contact</h2>
+            <form id="contactForm" onsubmit="validateForm(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Submit</button>
+                <div id="formFeedback" class="feedback"></div>
+            </form>
+        </section>
+        <section id="help" class="page">
+            <h2>Help</h2>
+            <p>If you need assistance, please refer to our <a href="#">documentation</a> or contact support.</p>
+            <div class="faq">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">What is this platform?</button>
+                    <div class="faq-answer">
+                        <p>This platform is a tool for visualizing and analyzing data in various formats.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">How do I upload data?</button>
+                    <div class="faq-answer">
+                        <p>You can upload data by navigating to the Data Upload section and selecting a file.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-</main>
-<footer>
-    <p>&copy; 2023 Interactive Data Visualization Platform</p>
-    <ul>
-        <li><a href="#" onclick="showPage('about')">About</a></li>
-        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
-        <li><a href="#" onclick="showPage('help')">Help</a></li>
-    </ul>
-    <div class="social-media">
-        <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
-        <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
-        <a href="#"><img src="icons/linkedin.png" alt="LinkedIn"></a>
-    </div>
-</footer>
+        </section>
+        </main>
+        <footer>
+            <p>&copy; 2023 Interactive Data Visualization Platform</p>
+            <ul>
+                <li><a href="#" onclick="showPage('about')">About</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                <li><a href="#" onclick="showPage('help')">Help</a></li>
+            </ul>
+            <div class="social-media">
+                <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="icons/linkedin.png" alt="LinkedIn"></a>
+            </div>
+        </footer>
+</body>
+</html>
