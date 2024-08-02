@@ -64,3 +64,24 @@ svg {
 .axis--x path {
     display: none;
 }
+
+.axis--y .tick line {
+    stroke: #d3d3d3;
+}
+
+.axis--y path {
+    display: none;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode #sidebar {
+    background-color: #555;
+}
+
+.dark-mode #sidebar ul li:hover {
+    background-color: #444;
+}

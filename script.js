@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let chartType = 'bar';
-let chartData = [1,2,3,4,5,6];
-let filteredData = [1,2,34,5,67];
+let chartData = [];
+let filteredData = [];
 
 function showPage(page) {
     document.querySelectorAll('.page').forEach(section => section.classList.remove('active'));
@@ -27,6 +27,7 @@ function loadData(url, callback) {
         })
         .catch(error => console.error('Error fetching data:', error));
 }
+
 function renderChart(data) {
     const svg = d3.select('#chart');
     svg.selectAll('*').remove();
@@ -109,4 +110,34 @@ function renderChart(data) {
             .attr('dy', '0.35em')
             .text(d => d.data.name);
     }
+}
+
+function applyFilter() {
+    const filter = document.getElementById('filterInput').value.toLowerCase();
+    filteredData = chartData.filter(d => d.name.toLowerCase().includes(filter));
+    renderChart(filteredData);
+}
+
+function applyZoom() {
+    const zoomLevel = document.getElementById('zoomInput').value;
+    // Implement zoom logic here
+}
+
+function uploadData() {
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+        const data = d3.csvParse(reader.result);
+        chartData = data;
+        filteredData = data;
+        renderChart(data);
+    };
+    reader.readAsText(file);
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
 }
