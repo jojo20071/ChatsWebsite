@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -113,6 +114,7 @@ footer ul li a {
 
 footer ul li a:hover {
     text-decoration: underline;
+    color: #ffeb3b;
 }
 
 form {
@@ -141,8 +143,6 @@ form button {
 form button:hover {
     background-color: #303f9f;
 }
-
-/* Existing styles */
 
 .feedback {
     margin-top: 1rem;
@@ -188,9 +188,4 @@ form button:hover {
 .social-media img {
     width: 24px;
     height: 24px;
-}
-
-footer ul li a:hover {
-    text-decoration: underline;
-    color: #ffeb3b;
 }
