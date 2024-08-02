@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     showPage('dashboard');
     loadData('https://api.mocki.io/v1/b043df5a', renderChart);
+    loadPreferences();
 });
 
 let chartType = 'bar';
@@ -140,4 +141,31 @@ function uploadData() {
 
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
+    savePreferences();
+}
+
+function validateForm(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    if (name && email && message) {
+        alert('Form submitted successfully!');
+        document.getElementById('contactForm').reset();
+    } else {
+        alert('Please fill out all fields.');
+    }
+}
+
+function savePreferences() {
+    const darkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', darkMode);
+}
+
+function loadPreferences() {
+    const darkMode = localStorage.getItem('darkMode') === 'true';
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+    }
 }

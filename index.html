@@ -18,6 +18,9 @@
             <li onclick="showPage('upload')">Data Upload</li>
             <li onclick="showPage('realtime')">Real-Time Data</li>
             <li onclick="showPage('settings')">Settings</li>
+            <li onclick="showPage('about')">About</li>
+            <li onclick="showPage('contact')">Contact</li>
+            <li onclick="showPage('help')">Help</li>
         </ul>
     </aside>
     <main>
@@ -48,6 +51,34 @@
                 Dark Mode
             </label>
         </section>
+        <section id="about" class="page">
+            <h2>About</h2>
+            <p>Welcome to the Interactive Data Visualization Platform. This platform allows you to visualize data in various formats and interact with real-time data.</p>
+        </section>
+        <section id="contact" class="page">
+            <h2>Contact</h2>
+            <form id="contactForm" onsubmit="validateForm(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section id="help" class="page">
+            <h2>Help</h2>
+            <p>If you need assistance, please refer to our <a href="#">documentation</a> or contact support.</p>
+        </section>
     </main>
+    <footer>
+        <p>&copy; 2023 Interactive Data Visualization Platform</p>
+        <ul>
+            <li><a href="#" onclick="showPage('about')">About</a></li>
+            <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+            <li><a href="#" onclick="showPage('help')">Help</a></li>
+        </ul>
+    </footer>
 </body>
 </html>
