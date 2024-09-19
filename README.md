@@ -1,7 +1,8 @@
 # Interactive Data Dashboard
 
 ## Overview
-
+![image](https://github.com/user-attachments/assets/a900109e-179a-4ccd-9287-68ae7c6b5db1)
+link: https://chats-website.vercel.app/#
 Interactive Data Dashboard is a web-based application designed to visualize data dynamically using D3.js. It offers multiple chart types, filtering, dark mode, and data uploading features, making it a versatile tool for data exploration and presentation.
 
 ## Features
